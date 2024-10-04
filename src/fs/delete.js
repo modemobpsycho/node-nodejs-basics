@@ -1,5 +1,11 @@
-const remove = async () => {
-    // Write your code here 
-};
+import fs from 'fs'
 
-await remove();
+const remove = async () => {
+	try {
+		await fs.promises.unlink('./src/fs/files/fileToRemove.txt')
+	} catch (err) {
+		throw new Error('FS operation failed')
+	}
+}
+
+await remove()
